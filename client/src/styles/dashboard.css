@@ -1,0 +1,435 @@
+/* Dashboard Layout */
+.dashboard-layout {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  background-color: var(--background-dark);
+  width: 100%;
+}
+
+.dashboard-container {
+  display: flex;
+  flex: 1;
+  width: 100%;
+  max-width: 100%;
+  min-height: calc(100vh - 64px); /* Account for navbar height */
+  position: relative;
+}
+
+/* Sidebar */
+.sidebar {
+  width: 280px;
+  background-color: var(--background-light);
+  padding: var(--spacing-lg);
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-md);
+  box-shadow: var(--shadow-md);
+  z-index: 10;
+  transition: all 0.3s ease;
+  border-right: 1px solid var(--border-color);
+  height: 100%;
+  position: fixed;
+  top: 64px; /* Account for navbar height */
+  left: 0;
+  bottom: 0;
+  overflow-y: auto;
+}
+
+.sidebar-header {
+  padding-bottom: var(--spacing-md);
+  border-bottom: 1px solid var(--border-color);
+  margin-bottom: var(--spacing-md);
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-sm);
+}
+
+.sidebar-title {
+  font-size: var(--font-size-xl);
+  font-weight: 600;
+  color: var(--text-primary);
+  margin: 0;
+}
+
+.sidebar-header i {
+  color: var(--primary-color);
+  font-size: 1.5rem;
+}
+
+.sidebar-nav {
+  flex: 1;
+}
+
+.sidebar-menu {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-sm);
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.menu-item {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-md);
+  padding: var(--spacing-md) var(--spacing-lg);
+  border-radius: var(--border-radius);
+  color: var(--text-secondary);
+  text-decoration: none;
+  transition: all var(--transition);
+  font-weight: 500;
+  border: 1px solid transparent;
+  font-size: var(--font-size-md);
+}
+
+.menu-item i {
+  width: 24px;
+  text-align: center;
+  font-size: 1.2rem;
+  color: var(--text-secondary);
+}
+
+.menu-item span {
+  flex: 1;
+}
+
+.menu-item:hover {
+  background-color: var(--background-lighter);
+  color: var(--text-primary);
+  transform: translateX(5px);
+  border-color: var(--border-color);
+}
+
+.menu-item.active {
+  background-color: var(--background-lighter);
+  color: var(--primary-color);
+  box-shadow: var(--shadow-sm);
+  border-color: var(--border-color);
+}
+
+.menu-item.active i {
+  color: var(--primary-color);
+}
+
+.sidebar-footer {
+  margin-top: auto;
+  padding-top: var(--spacing-md);
+  border-top: 1px solid var(--border-color);
+  text-align: center;
+}
+
+.sidebar-version {
+  font-size: 0.8rem;
+  color: var(--text-secondary);
+  margin: 0;
+}
+
+/* Main Content */
+.dashboard-main {
+  flex: 1;
+  padding: var(--spacing-xl);
+  background-color: var(--background-dark);
+  overflow-y: auto;
+  margin-left: 280px; /* Match sidebar width */
+  width: calc(100% - 280px);
+  min-height: calc(100vh - 64px);
+  box-sizing: border-box;
+}
+
+.page-container {
+  max-width: 100%;
+  margin: 0 auto;
+  width: 100%;
+}
+
+.page-header {
+  margin-bottom: var(--spacing-xl);
+  padding-bottom: var(--spacing-md);
+  border-bottom: 1px solid var(--border-color);
+}
+
+.page-title {
+  font-size: clamp(1.5rem, 4vw, 2.25rem);
+  font-weight: 600;
+  color: var(--text-primary);
+  margin-bottom: var(--spacing-sm);
+  line-height: 1.2;
+}
+
+.page-description {
+  color: var(--text-secondary);
+  font-size: clamp(1rem, 2vw, 1.125rem);
+  line-height: 1.5;
+}
+
+/* Form styling in dashboard */
+.form-container {
+  background-color: var(--background-light);
+  border-radius: var(--border-radius);
+  box-shadow: var(--shadow-md);
+  padding: var(--spacing-xl);
+  margin-bottom: var(--spacing-xl);
+  max-width: 100%;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.form-container h2 {
+  font-size: var(--font-size-2xl);
+  color: var(--primary-color);
+  margin-bottom: var(--spacing-lg);
+}
+
+.form-group {
+  margin-bottom: var(--spacing-lg);
+}
+
+.form-label {
+  display: block;
+  margin-bottom: var(--spacing-sm);
+  color: var(--text-primary);
+  font-weight: 500;
+  font-size: clamp(0.875rem, 2vw, 1rem);
+}
+
+.form-input,
+.form-textarea,
+.form-select {
+  width: 100%;
+  padding: 0.75rem;
+  background-color: var(--background-dark);
+  border: 1px solid var(--border-color);
+  border-radius: var(--border-radius);
+  color: var(--text-primary);
+  font-size: clamp(0.875rem, 2vw, 1rem);
+  transition: all var(--transition);
+}
+
+.form-input:focus {
+  border-color: var(--primary-color);
+  outline: none;
+  box-shadow: 0 0 0 2px rgba(79, 70, 229, 0.2);
+}
+
+.form-actions {
+  display: flex;
+  justify-content: flex-end;
+  gap: var(--spacing-md);
+  margin-top: var(--spacing-xl);
+  flex-wrap: wrap;
+}
+
+/* Connect Wallet Page */
+.connect-wallet {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 80vh;
+  text-align: center;
+  padding: var(--spacing-xl);
+  background-color: var(--background-dark);
+  width: 100%;
+}
+
+.connect-wallet-title {
+  font-size: var(--font-size-3xl);
+  font-weight: 700;
+  margin-bottom: var(--spacing-md);
+  color: var(--text-primary);
+}
+
+.connect-wallet-description {
+  font-size: var(--font-size-lg);
+  color: var(--text-secondary);
+  margin-bottom: var(--spacing-xl);
+  max-width: 600px;
+}
+
+.connect-wallet-button {
+  padding: var(--spacing-md) var(--spacing-xl);
+  font-size: var(--font-size-lg);
+  font-weight: 600;
+  background-color: var(--primary-color);
+  color: var(--text-primary);
+  border: none;
+  border-radius: var(--border-radius);
+  cursor: pointer;
+  transition: all var(--transition);
+  box-shadow: var(--shadow-md);
+}
+
+.connect-wallet-button:hover {
+  background-color: var(--primary-hover);
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-lg);
+}
+
+/* Responsive Design */
+@media (max-width: 1024px) {
+  .sidebar {
+    width: 250px;
+  }
+  
+  .dashboard-main {
+    margin-left: 250px;
+    width: calc(100% - 250px);
+    padding: var(--spacing-lg);
+  }
+  
+  .menu-item {
+    padding: var(--spacing-md);
+  }
+  
+  .certificates-grid {
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: var(--spacing-md);
+  }
+}
+
+/* Add mobile sidebar toggle button styles */
+.sidebar-toggle {
+  position: fixed;
+  top: 80px;
+  left: 20px;
+  width: 40px;
+  height: 40px;
+  background-color: var(--primary-color);
+  border: none;
+  border-radius: 50%;
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  z-index: 100;
+  box-shadow: var(--shadow-md);
+  transition: all var(--transition);
+}
+
+.sidebar-toggle.active {
+  left: 280px;
+  background-color: var(--error-color);
+}
+
+.sidebar-toggle i {
+  font-size: 1.2rem;
+}
+
+/* Add sidebar collapsed state */
+.sidebar.collapsed {
+  transform: translateX(-100%);
+}
+
+/* Update mobile styles */
+@media (max-width: 768px) {
+  .dashboard-container {
+    flex-direction: column;
+  }
+  
+  .sidebar {
+    width: 280px;
+    height: 100%;
+    padding: var(--spacing-md);
+    border-right: 1px solid var(--border-color);
+    position: fixed;
+    top: 64px;
+    left: 0;
+    z-index: 50;
+    transition: transform 0.3s ease;
+    background-color: var(--background-light);
+  }
+  
+  .sidebar.collapsed {
+    transform: translateX(-100%);
+  }
+  
+  .dashboard-main {
+    margin-left: 0;
+    width: 100%;
+    padding: var(--spacing-md);
+    min-height: calc(100vh - 64px);
+  }
+  
+  .sidebar-toggle.active {
+    left: 240px;
+  }
+  
+  .connect-wallet {
+    min-height: 60vh;
+  }
+  
+  .connect-wallet-title {
+    font-size: var(--font-size-2xl);
+  }
+  
+  .connect-wallet-description {
+    font-size: var(--font-size-md);
+  }
+  
+  .form-actions {
+    flex-direction: column;
+  }
+  
+  .form-actions .btn {
+    width: 100%;
+  }
+  
+  .certificates-grid {
+    grid-template-columns: 1fr;
+  }
+  
+  .certificate-form h2,
+  .certificate-list h2,
+  .form-container h2 {
+    font-size: var(--font-size-xl);
+  }
+  
+  .certificate-details p strong {
+    min-width: 90px;
+  }
+}
+
+@media (max-width: 480px) {
+  .institution-item {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+  
+  .institution-address {
+    margin-bottom: var(--spacing-sm);
+    width: 100%;
+    word-break: break-all;
+  }
+  
+  .sidebar-toggle {
+    top: 70px;
+    left: 15px;
+    width: 35px;
+    height: 35px;
+  }
+  
+  .sidebar-toggle.active {
+    left: 230px;
+  }
+  
+  .sidebar {
+    width: 260px;
+  }
+}
+
+/* Make all dashboard content elements full width */
+.certificate-form,
+.certificate-list,
+.form-container {
+  width: 100%;
+  max-width: 100%;
+  box-sizing: border-box;
+}
+
+/* Fix any form containers to take more space when available */
+.form-container {
+  max-width: 100%;
+} 
